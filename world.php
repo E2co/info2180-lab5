@@ -11,16 +11,34 @@ try{
   
   if(isset($_GET['country'])){
     $country = $_GET['country'];
-    $stmt = $conn->prepare("SELECT * FROM countries WHERE name LIKE :country");
+    $stmt = $conn->prepare("SELECT name, continent, independence_year, head_of_state FROM countries WHERE name LIKE :country");
     $stmt -> execute(['country' => "%$country%"]);
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($results);
-    
-  } else{
-    echo json_encode([]);
-  }
 
+    if(count($results) > 0){
+      echo '<table border = "1">';
+      echo '<tr>
+              <th>Country Name</th>
+              <th>Continent</th>
+              <th>Independence Year</th>
+              <th>Head of State</th>
+            </tr>';
+
+      foreach($results as $row){
+        echo '<tr>';
+        echo '<td>' . htmlspecialchars($row['name']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['continent']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['independence_year']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['head_of_state']) . '</td>';
+        echo '</tr>';
+      }
+
+      echo '</table>';
+    }
+  } else{
+    echo 'Please enter a country name.';
+  }
 } catch(PDOException $e){
   echo "Connection failed: " . $e -> getMessage();
 }
