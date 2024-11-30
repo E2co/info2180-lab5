@@ -1,1 +1,91 @@
-/* Add your own styles */
+*{
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #78B9BA;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;   
+}
+
+#logo img {
+  max-height: 175px;
+  width: auto;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #C6C5B4;
+    color: white;
+    padding: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#controls {
+  background-color: transparent;
+  padding: 20px;
+  margin: 20px;
+}
+
+#controls label{
+  display: block;
+  margin: 10px 0 5px;
+}
+
+#controls input{
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#controls button{
+  background-color: #4070F4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#controls button:hover{
+  background-color: #1032d8;
+}
+
+#result{
+  margin: 20px;
+  width: 90%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#result th,
+#result td{
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#result th{
+  background-color: #ddd;
+  color: black;
+}
+
+#result td{
+    background-color: white;
+    color: black;
+}
